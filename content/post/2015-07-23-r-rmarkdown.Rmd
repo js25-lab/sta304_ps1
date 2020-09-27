@@ -1,0 +1,81 @@
+---
+title: "2019 Canadian Election Studies Survey Investigtion"
+author: "Ziyu Hao"
+date: 2020-09-23T21:13:14-05:00
+bibliography: "references.bib"
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Abstract
+
+The Canadian Election Studies is an impressive body of survey data and it is of great importance for us to investigate why Canadians vote the way they do. In this paper we explore the 2019 CES phone survey data set. We find that the population of voted Canadians tend to have completed secondary or higher levels of education. Our findings have implication that it is important to promote voting among all Canadians to eliminate discrimination and thus providing a better representation of peoples' choices.
+
+# Introduction
+It is of great importance for us to investigate why our fellow Canadians vote the way they do. In this study, we aimed to look into the Canadian Election Studies phone survey conducted in 2019 and further investigate the education level as a factor influencing the voting.  
+
+A bar chart and a box plot are used to illustrate the overall distribution of the highest level of education that the voters' have completed. It is shown that the highest amount of voters are among the ones that have completed a secondary education or have obtained a bachelors' degree.  
+
+The first part of the paper provides a brief description of the data set CES2019_phone. The second part of the paper further investigates voters' education level and a bar graph showing the overall distribution and comparisons between different education groups. The final part of the paper discusses main finding of the graph and weaknesses regarding the study. References are listed subsequently.  
+
+```{r,echo = FALSE, warning=FALSE, message=FALSE, results='hide'}
+install.packages("devtools")
+devtools::install_github("hodgettsp/cesR")
+library(cesR)
+get_ces("ces2019_phone")
+ces2019_phone <- labelled::to_factor(ces2019_phone)
+head(ces2019_phone)
+```
+# Data
+The CES2019_phone data set includes a 2019 post-election followup survey containing 4021 observations. The data set is too big to be visualized. The data set also contains various observation types such as character, numeric and factor. Highest level of education completed is the variable we are interested in investigating and it is a discrete variable. The level of education is divided into 13 different categories ranging from "No Schooling" to "Professional Degree or Doctorate" with two categories being "Refused" and "Don't know".
+
+# Bar graph & Box plot
+```{r, echo = FALSE, warning=FALSE, message=FALSE, results='hide'}
+install.packages("tidyverse")
+library(tidyverse)
+
+ggplot(data = ces2019_phone, aes(x = q61)) + 
+  geom_bar(width = 0.5, color = "red") + 
+  labs(x = "Highest Level of Education Completed", 
+       y = "Number", 
+       title = "Distribution of Education Level for 2019 CES phone survey",
+       caption = "Source: Stephenson, Harell, Rubenson, Loewen, 2020.") +
+       theme(axis.text.x = element_text(angle=20, hjust=1, size=10))
+
+ggplot(data = ces2019_phone, aes(x = q61)) + 
+  geom_boxplot(color = "red") + 
+  labs(x = "Highest Level of Education Completed", 
+       y = "Number", 
+       title = "Distribution of Education Level for 2019 CES phone survey",
+       caption = "Source: Stephenson, Harell, Rubenson, Loewen, 2020.") +
+       theme(axis.text.x = element_text(angle=20, hjust=1, size=10))
+```
+
+The bar graph illustrates the number of voters in highest levels of education that they have completed. The highest number of survey participants are the ones who have obtained a bachelor's degree. Voters who have completed secondary education or community college also constitutes a majority of the whole survey participants population. We can observe a close to 500 difference in number of voters between those who have completed lower levels of education and higher levels of education.
+
+The box plot shows that the Professional degree or Doctorate has the highest median. Overall the interquartile ranges are about the same for all levels of education and there does not exists skewness nor outliers.
+
+# Discussion
+Main Findings:
+
+Main finding is that the population of voted Canadians tend to have completed secondary or higher levels of education. It implies that it is important to Canadian are more aware of the importance of voting when they have completed higher educations.
+
+Survey Features:
+
+An important feature of this survey is that for questions like the one we aim to investigate contains two levels of education namely "Refused" and "Don't know". We know that in the survey there usually exists a kind of "non-response" bias when the survey taker decides not to choose a specific category which leads to the survey not able to accurately reflect the targeted group. However, for a well-designed and highly responded like CES2019_phone, this is more of an opportunity than an issue. It helps us to better understand the survey taker groups.
+
+We can also note that there are very similar categories such as "Secondary School" and "Completed Secondary School" which can be further combined into one group.
+
+# Weaknesses
+One weakness regarding my finding is that histogram can not be used to illustrate my findings since the variable is discrete. Weakness regarding the whole survey is that respondents may not feel encouraged to answer accurately and may misrepresenting themselves. 
+
+Further steps: We can decrease the total number of questions in the survey to avoid bias when respondents not feel encouraged to respond. Unnecessary categories mentioned above can be further combined into one category.
+
+# Reference
+@citetidyverse
+@citedevtools
+@citeR

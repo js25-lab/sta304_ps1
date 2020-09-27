@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>plot on Website for CES2019 survey investigation</title>
+    <link>/tags/plot/</link>
+    <description>Recent content in plot on Website for CES2019 survey investigation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Sep 2020 21:13:14 -0500</lastBuildDate><atom:link href="/tags/plot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2019 Canadian Election Studies Survey Investigtion</title>
+      <link>/2020/09/23/2019-canadian-election-studies-survey-investigtion/</link>
+      <pubDate>Wed, 23 Sep 2020 21:13:14 -0500</pubDate>
+      
+      <guid>/2020/09/23/2019-canadian-election-studies-survey-investigtion/</guid>
+      <description>Abstract The Canadian Election Studies is an impressive body of survey data and it is of great importance for us to investigate why Canadians vote the way they do. In this paper we explore the 2019 CES phone survey data set. We find that the population of voted Canadians tend to have completed secondary or higher levels of education. Our findings have implication that it is important to promote voting among all Canadians to eliminate discrimination and thus providing a better representation of peoples’ choices.</description>
+    </item>
+    
+  </channel>
+</rss>
